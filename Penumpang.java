@@ -58,4 +58,9 @@ public class Penumpang {
 
     this.saldo -= ongkos; // Mengurangi saldo penumpang dengan ongkos, sama bentuknya dengan saldo = saldo - ongkos
   }
+
+  // Method untuk mengecek apakah penumpang termasuk penumpang prioritas atau tidak
+  public boolean isPenumpangPrioritas(){
+    return (this.umur > 60 || this.umur < 10 || this.hamil); // Mengembalikan True jika penumpang prioritas, False jika bukan penumpang prioritas
+  }
 }
