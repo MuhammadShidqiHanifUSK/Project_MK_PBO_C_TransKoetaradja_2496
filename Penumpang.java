@@ -49,4 +49,13 @@ public class Penumpang {
 
     this.saldo += saldoBaru; // Menambahkan saldo baru ke saldo penumpang, sama bentuknya dengan saldo = saldo + saldoBaru
   }
+
+  // Method behavior untuk mengurangi saldo penumpang
+  public void kurangiSaldo(int ongkos){
+    if (ongkos < 0){ // Validasi ongkos yang akan dikurangi tidak boleh negatif
+      throw new IllegalArgumentException("Ongkos tidak boleh negatif!");
+    }
+
+    this.saldo -= ongkos; // Mengurangi saldo penumpang dengan ongkos, sama bentuknya dengan saldo = saldo - ongkos
+  }
 }
