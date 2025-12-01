@@ -20,4 +20,24 @@ public class Penumpang {
     this.hamil = hamil; // Inisialisasi atribut status kehamilan penumpang
     this.saldo = 10000; // Inisialisasi atribut saldo penumpang dengan nilai awal 10000
   }
+
+  // Method Getter untuk mendapatkan ID penumpang
+  public int getId() {
+    return this.id;
+  }
+
+  // Method Getter untuk mendapatkan umur penumpang
+  public int getUmur() {
+    return this.umur; // Mengembalikan umur penumpang (dalam satuan integer tahun)
+  }
+
+  // Method Getter untuk mendapatkan status kehamilan penumpang
+  public boolean getHamil() {
+    return this.hamil; // Mengembalikan status kehamilan penumpang (True/False)
+  }
+
+  // Method Getter untuk mendapatkan saldo penumpang
+  public int getSaldo() {
+    return this.saldo; // Mengembalikan saldo penumpang (dalam satuan integer)
+  }
 }
