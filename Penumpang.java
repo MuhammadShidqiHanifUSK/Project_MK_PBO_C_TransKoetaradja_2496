@@ -4,4 +4,20 @@ public class Penumpang {
   private int umur; // Umur penumpang dalam satuan integer tahun
   private boolean hamil; // Status kehamilan penumpang, True = Penumpang hamil, False = Penumpang tidak hamil
   private int saldo; // Saldo uang yang dimiliki penumpang
+
+  // Method Konstruktor Penumpang
+  public Penumpang(int id, int umur, boolean hamil, int saldo) {
+    if (id <= 0){ // Validasi ID penumpang tidak boleh negatif atau nol
+      throw new IllegalArgumentException("ID tidak boleh negatif atau nol! Harus > 0!");
+    }
+
+    if (umur < 0){ // Validasi umur penumpang tidak boleh negatif
+      throw new IllegalArgumentException("Umur tidak boleh negatif!");
+    }
+
+    this.id = id; // Inisialisasi atribut ID penumpang
+    this.umur = umur; // Inisialisasi atribut umur penumpang
+    this.hamil = hamil; // Inisialisasi atribut status kehamilan penumpang
+    this.saldo = 10000; // Inisialisasi atribut saldo penumpang dengan nilai awal 10000
+  }
 }
