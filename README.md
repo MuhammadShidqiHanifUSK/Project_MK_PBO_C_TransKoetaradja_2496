@@ -1,9 +1,18 @@
-# Project UAS Mata Kuliah Pemrograman Berorientasi Objek (PBO) Kelas C - Simulasi Bus Trans Koetaradja
-Nama: Muhammad Shidqi Hanif
-NPM: 2408107010096
-Prodi: S1 - Informatika
-Mata Kuliah: Pemrograman Berorientasi Objek (PBO)
-Kelas: C
+# Project Mata Kuliah Pemrograman Berorientasi Objek (PBO) Kelas C - Simulasi Bus Trans Koetaradja
+Nama: 
+Muhammad Shidqi Hanif
+
+NPM: 
+2408107010096
+
+Prodi: 
+S1 - Informatika
+
+Mata Kuliah: 
+Pemrograman Berorientasi Objek (PBO)
+
+Kelas: 
+C
 
 ## Deskripsi Singkat Project
 Project ini mensimulasikan sistem manajemen penumpang Bus Trans Koetaradja menggunakan konsep Object-Oriented Programming (OOP) di Java. Program menangani proses naik–turun penumpang, pengelolaan kursi biasa dan prioritas, penumpang berdiri, pengecekan saldo, hingga perhitungan pendapatan bus harian.
