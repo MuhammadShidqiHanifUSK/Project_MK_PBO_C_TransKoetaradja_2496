@@ -63,4 +63,11 @@ public class Penumpang {
   public boolean isPenumpangPrioritas(){
     return (this.umur > 60 || this.umur < 10 || this.hamil); // Mengembalikan True jika penumpang prioritas, False jika bukan penumpang prioritas
   }
+
+  // Method toString untuk menampilkan informasi lengkap penumpang bus Trans Koetaradja
+  @Override
+  public String toString(){
+    return String.format("ID Penumpang: %d\nUmur Penumpang: %d tahun\nApakah penumpang hamil: %b\nApakah penumpang prioritas: %b\nSaldo Penumpang: %d",
+                          this.id, this.umur, this.hamil, this.isPenumpangPrioritas(), this.saldo); // Mengembalikan informasi lengkap penumpang dalam format string
+  }
 }
