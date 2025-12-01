@@ -40,4 +40,13 @@ public class Penumpang {
   public int getSaldo() {
     return this.saldo; // Mengembalikan saldo penumpang (dalam satuan integer)
   }
+
+  // Method behavior untuk menambah saldo penumpang
+  public void tambahSaldo(int saldoBaru){
+    if (saldoBaru < 0){ // Validasi saldo baru yang ditambahkan tidak boleh negatif
+      throw new IllegalArgumentException("Saldo baru tidak boleh negatif!");
+    }
+
+    this.saldo += saldoBaru; // Menambahkan saldo baru ke saldo penumpang, sama bentuknya dengan saldo = saldo + saldoBaru
+  }
 }
