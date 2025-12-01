@@ -12,4 +12,12 @@ public class Bus {
   private static final int KAPASITAS_KURSI_PENUMPANG_BIASA = 16; // Kapasitas kursi untuk penumpang biasa
   private static final int KAPASITAS_KURSI_PENUMPANG_PRIORITAS = 4; // Kapasitas kursi untuk penumpang prioritas
   private static final int KAPASITAS_PENUMPANG_BERDIRI = 20; // Kapasitas penumpang yang berdiri di dalam bus
+
+  // Method Konstruktor Bus
+  public Bus(){
+    penumpangBiasa = new ArrayList<>(); // Inisialisasi ArrayList penumpang biasa
+    penumpangPrioritas = new ArrayList<>(); // Inisialisasi ArrayList penumpang prioritas
+    penumpangBerdiri = new ArrayList<>(); // Inisialisasi ArrayList penumpang berdiri
+    totalPendapatan = 0; // Inisialisasi total pendapatan bus dengan nilai
+  }
 }
