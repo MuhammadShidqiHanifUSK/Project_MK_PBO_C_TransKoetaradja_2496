@@ -12,6 +12,7 @@ public class Bus {
   private static final int KAPASITAS_KURSI_PENUMPANG_BIASA = 16; // Kapasitas kursi untuk penumpang biasa
   private static final int KAPASITAS_KURSI_PENUMPANG_PRIORITAS = 4; // Kapasitas kursi untuk penumpang prioritas
   private static final int KAPASITAS_PENUMPANG_BERDIRI = 20; // Kapasitas penumpang yang berdiri di dalam bus
+  private static final int KAPASITAS_TOTAL_BUS = KAPASITAS_KURSI_PENUMPANG_BIASA + KAPASITAS_KURSI_PENUMPANG_PRIORITAS + KAPASITAS_PENUMPANG_BERDIRI; // Kapasitas total bus
 
   // Method Konstruktor Bus
   public Bus(){
@@ -54,5 +55,42 @@ public class Bus {
   // Method Getter untuk mendapatkan total pendapatan bus
   public int getTotalPendapatan(){
     return this.totalPendapatan; // Mengembalikan total pendapatan bus
+  }
+
+  public int getTotalPenumpang(){
+    return this.getJumlahPenumpangBiasa() + this.getJumlahPenumpangPrioritas() + this.getJumlahPenumpangBerdiri();
+  }
+
+  public boolean naikkanPenumpang(Penumpang penumpang){
+    // Cek apakah kapasitas bus sudah penuh ato blm
+    if (getTotalPenumpang() >= KAPASITAS_TOTAL_BUS && penumpang.getSaldo() < ONGKOS_BUS){
+      return false; // bakalan return false kalo bus penuh dan saldo penumpang nggak cukup
+    }
+
+    // Cek apakah penumpang termasuk penumpang prioritas ato bukan
+    if (penumpang.isPenumpangPrioritas()){
+      if (getJumlahPenumpangPrioritas() < KAPASITAS_KURSI_PENUMPANG_PRIORITAS){
+        penumpangPrioritas.add(penumpang);
+      } else if (getJumlahPenumpangBiasa() < KAPASITAS_KURSI_PENUMPANG_BIASA){
+        penumpangBiasa.add(penumpang);
+      } else if (getJumlahPenumpangBerdiri() < KAPASITAS_PENUMPANG_BERDIRI){
+        penumpangBerdiri.add(penumpang);
+      } else {
+        return false; // bakalan return false, berarti busnya ud penuh
+      }
+    } else { // Penumpang bukan penumpang prioritas
+      if (getJumlahPenumpangBiasa() < KAPASITAS_KURSI_PENUMPANG_BIASA){
+        penumpangBiasa.add(penumpang);
+      } else if (getJumlahPenumpangBerdiri() < KAPASITAS_PENUMPANG_BERDIRI){
+        penumpangBerdiri.add(penumpang);
+      } else {
+        return false; // bakalan return false, berarti busnya ud penuh
+      }
+    }
+
+    // Kurangi saldo penumpang dan tambahkan ke total pendapatan bus
+    penumpang.kurangiSaldo(ONGKOS_BUS);
+    totalPendapatan += ONGKOS_BUS;
+    return true; // Penumpang boleh naik, yeahh :)
   }
 }
