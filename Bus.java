@@ -118,4 +118,58 @@ public class Bus {
   }
     return false; // Penumpang dengan nama tersebut tidak ditemukan
   }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("===== DATA PENUMPANG BUS TRANS KOETARADJA =====\n\n");
+
+    // Penumpang Biasa
+    sb.append("Penumpang Biasa : ");
+    boolean kosong = true;
+    for (Penumpang p : penumpangBiasa) {
+      if (p != null) {
+        sb.append(p.getNama()).append(", ");
+        kosong = false;
+      }
+    }
+
+    if (kosong) sb.append("<kosong>");
+    sb.append("\n");
+
+    // Penumpang Prioritas
+    sb.append("Penumpang Prioritas : ");
+    kosong = true;
+    for (Penumpang p : penumpangPrioritas) {
+      if (p != null) {
+        sb.append(p.getNama()).append(", ");
+        kosong = false;
+      }
+    }
+
+    if (kosong) sb.append("<kosong>");
+    sb.append("\n");
+
+    // Penumpang Berdiri
+    sb.append("Penumpang Berdiri : ");
+    kosong = true;
+    for (Penumpang p : penumpangBerdiri) {
+      if (p != null) {
+        sb.append(p.getNama()).append(", ");
+        kosong = false;
+      }
+    }
+    if (kosong) sb.append("<kosong>");
+    sb.append("\n");
+
+    // Ringkasan
+    int totalPenumpang = getJumlahPenumpangBiasa() + getJumlahPenumpangPrioritas() + getJumlahPenumpangBerdiri();
+
+    sb.append("\nJumlah Penumpang : ").append(totalPenumpang).append("\n");
+    sb.append("Total Pendapatan : Rp ").append(totalPendapatan).append("\n");
+
+    sb.append("================================================\n");
+
+    return sb.toString();
+  }
 }
