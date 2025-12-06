@@ -69,19 +69,19 @@ public class Bus {
 
     // Cek apakah penumpang termasuk penumpang prioritas ato bukan
     if (penumpang.isPenumpangPrioritas()){
-      if (getJumlahPenumpangPrioritas() < KAPASITAS_KURSI_PENUMPANG_PRIORITAS){
+      if (getJumlahPenumpangPrioritas() < KAPASITAS_KURSI_PENUMPANG_PRIORITAS){ // Penumpang prioritas dapat duduk di kursi prioritas
         penumpangPrioritas.add(penumpang);
-      } else if (getJumlahPenumpangBiasa() < KAPASITAS_KURSI_PENUMPANG_BIASA){
+      } else if (getJumlahPenumpangBiasa() < KAPASITAS_KURSI_PENUMPANG_BIASA){ // Penumpang prioritas dapat duduk di kursi biasa jika kursi prioritas sudah penuh
         penumpangBiasa.add(penumpang);
-      } else if (getJumlahPenumpangBerdiri() < KAPASITAS_PENUMPANG_BERDIRI){
+      } else if (getJumlahPenumpangBerdiri() < KAPASITAS_PENUMPANG_BERDIRI){ // Penumpang prioritas dapat berdiri jika kursi prioritas dan kursi biasa sudah penuh
         penumpangBerdiri.add(penumpang);
       } else {
         return false; // bakalan return false, berarti busnya ud penuh
       }
     } else { // Penumpang bukan penumpang prioritas
-      if (getJumlahPenumpangBiasa() < KAPASITAS_KURSI_PENUMPANG_BIASA){
+      if (getJumlahPenumpangBiasa() < KAPASITAS_KURSI_PENUMPANG_BIASA){ // Penumpang biasa dapat duduk di kursi biasa
         penumpangBiasa.add(penumpang);
-      } else if (getJumlahPenumpangBerdiri() < KAPASITAS_PENUMPANG_BERDIRI){
+      } else if (getJumlahPenumpangBerdiri() < KAPASITAS_PENUMPANG_BERDIRI){ // Penumpang biasa dapat berdiri jika kursi biasa sudah penuh
         penumpangBerdiri.add(penumpang);
       } else {
         return false; // bakalan return false, berarti busnya ud penuh
@@ -92,5 +92,30 @@ public class Bus {
     penumpang.kurangiSaldo(ONGKOS_BUS);
     totalPendapatan += ONGKOS_BUS;
     return true; // Penumpang boleh naik, yeahh :)
+  }
+
+  public boolean turunkanPenumpang(int id){
+    // Cari penumpang di daftar penumpang biasa
+    for (int i = 0; i < penumpangBiasa.size(); i++){
+      if (penumpangBiasa.get(i).getId() == id){
+        penumpangBiasa.remove(i); // Hapus penumpang dari daftar penumpang biasa
+        return true; // Berhasil menurunkan penumpang
+    }
+  }
+
+  for (Penumpang p : penumpangPrioritas){
+    if (p.getId() == id){
+      penumpangPrioritas.remove(p); // Hapus penumpang dari daftar penumpang prioritas
+      return true; // Berhasil menurunkan penumpang
+    }
+  }
+
+  for (Penumpang p : penumpangBerdiri){
+    if (p.getId() == id){
+      penumpangBerdiri.remove(p); // Hapus penumpang dari daftar penumpang berdiri
+      return true; // Berhasil menurunkan penumpang
+    }
+  }
+    return false; // Penumpang dengan ID tersebut tidak ditemukan
   }
 }
