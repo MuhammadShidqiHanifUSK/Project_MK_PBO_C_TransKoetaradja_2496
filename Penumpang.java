@@ -1,14 +1,19 @@
 public class Penumpang {
   // Atribut dasar Penumpang
   private int id; // ID unik untuk setiap penumpang pada Bus Trans Koetaradja
+  private String nama; // Nama penumpang pada Bus
   private int umur; // Umur penumpang dalam satuan integer tahun
   private boolean hamil; // Status kehamilan penumpang, True = Penumpang hamil, False = Penumpang tidak hamil
   private int saldo; // Saldo uang yang dimiliki penumpang
 
   // Method Konstruktor Penumpang
-  public Penumpang(int id, int umur, boolean hamil, int saldo) {
+  public Penumpang(int id, String nama,int umur, boolean hamil, int saldo) {
     if (id <= 0){ // Validasi ID penumpang tidak boleh negatif atau nol
       throw new IllegalArgumentException("ID tidak boleh negatif atau nol! Harus > 0!");
+    }
+
+    if (nama == null || nama.trim().isEmpty()){ // Validasi nama penumpang tidak boleh null atau kosong
+      throw new IllegalArgumentException("Nama tidak boleh null atau kosong!");
     }
 
     if (umur < 0){ // Validasi umur penumpang tidak boleh negatif
@@ -16,6 +21,7 @@ public class Penumpang {
     }
 
     this.id = id; // Inisialisasi atribut ID penumpang
+    this.nama = nama; // Inisialisasi atribut nama penumpang
     this.umur = umur; // Inisialisasi atribut umur penumpang
     this.hamil = hamil; // Inisialisasi atribut status kehamilan penumpang
     this.saldo = 10000; // Inisialisasi atribut saldo penumpang dengan nilai awal 10000
@@ -24,6 +30,11 @@ public class Penumpang {
   // Method Getter untuk mendapatkan ID penumpang
   public int getId() {
     return this.id;
+  }
+
+  // Method Getter untuk mendapatkan nama penumpang
+  public String getNama() {
+    return this.nama; // Mengembalikan nama penumpang (dalam satuan string)
   }
 
   // Method Getter untuk mendapatkan umur penumpang
@@ -67,7 +78,7 @@ public class Penumpang {
   // Method toString untuk menampilkan informasi lengkap penumpang bus Trans Koetaradja
   @Override
   public String toString(){
-    return String.format("ID Penumpang: %d\nUmur Penumpang: %d tahun\nApakah penumpang hamil: %b\nApakah penumpang prioritas: %b\nSaldo Penumpang: %d",
-                          this.id, this.umur, this.hamil, this.isPenumpangPrioritas(), this.saldo); // Mengembalikan informasi lengkap penumpang dalam format string
+    return String.format("ID Penumpang: %d\nNama Penumpang: %s\nUmur Penumpang: %d tahun\nApakah penumpang hamil: %b\nApakah penumpang prioritas: %b\nSaldo Penumpang: %d",
+                          this.id, this.nama, this.umur, this.hamil, this.isPenumpangPrioritas(), this.saldo); // Mengembalikan informasi lengkap penumpang dalam format string
   }
 }
