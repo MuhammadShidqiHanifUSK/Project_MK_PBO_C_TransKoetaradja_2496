@@ -94,28 +94,28 @@ public class Bus {
     return true; // Penumpang boleh naik, yeahh :)
   }
 
-  public boolean turunkanPenumpang(int id){
+  public boolean turunkanPenumpang(String nama){
     // Cari penumpang di daftar penumpang biasa
-    for (int i = 0; i < penumpangBiasa.size(); i++){
-      if (penumpangBiasa.get(i).getId() == id){
-        penumpangBiasa.remove(i); // Hapus penumpang dari daftar penumpang biasa
+    for (Penumpang p : penumpangBiasa){
+      if (p.getNama().equalsIgnoreCase(nama)){
+        penumpangBiasa.remove(p); // Hapus penumpang dari daftar penumpang biasa
         return true; // Berhasil menurunkan penumpang
+      }
     }
-  }
 
   for (Penumpang p : penumpangPrioritas){
-    if (p.getId() == id){
+    if (p.getNama().equalsIgnoreCase(nama)){
       penumpangPrioritas.remove(p); // Hapus penumpang dari daftar penumpang prioritas
       return true; // Berhasil menurunkan penumpang
     }
   }
 
   for (Penumpang p : penumpangBerdiri){
-    if (p.getId() == id){
+    if (p.getNama().equalsIgnoreCase(nama)){
       penumpangBerdiri.remove(p); // Hapus penumpang dari daftar penumpang berdiri
       return true; // Berhasil menurunkan penumpang
     }
   }
-    return false; // Penumpang dengan ID tersebut tidak ditemukan
+    return false; // Penumpang dengan nama tersebut tidak ditemukan
   }
 }
