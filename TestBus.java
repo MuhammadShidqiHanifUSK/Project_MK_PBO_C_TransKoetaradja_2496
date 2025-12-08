@@ -26,20 +26,20 @@ public class TestBus{
       switch (pilihan){
         case 1:
           try {
-            System.out.println("Masukkan ID Penumpang: ");
+            System.out.print("Masukkan ID Penumpang: ");
             int id = Integer.parseInt(scanner.nextLine());
 
-            System.out.println("Masukkan Nama Penumpang: ");  
+            System.out.print("Masukkan Nama Penumpang: ");  
             String nama = scanner.nextLine();
 
-            System.out.println("Masukkan Umur Penumpang: ");
+            System.out.print("Masukkan Umur Penumpang: ");
             int umur = Integer.parseInt(scanner.nextLine());
 
-            System.out.println("Apakah penumpang hamil (y/n)? ");
+            System.out.print("Apakah penumpang hamil (y/n)? ");
             String isHamil = scanner.nextLine().trim().toLowerCase();
             boolean hamil = (isHamil.equals("y"));
 
-            System.out.println("Masukkan Saldo Penumpang: ");
+            System.out.print("Masukkan Saldo Penumpang: ");
             int saldo = Integer.parseInt(scanner.nextLine());
 
             Penumpang penumpangBaru = new Penumpang(id, nama, umur, hamil, saldo);
@@ -58,7 +58,7 @@ public class TestBus{
           break;
         
         case 2:
-          System.out.println("Masukkan Nama Penumpang yang akan diturunkan: ");
+          System.out.print("Masukkan Nama Penumpang yang akan diturunkan: ");
           String namaTurun = scanner.nextLine();
           boolean berhasilTurun = bus.turunkanPenumpang(namaTurun);
 
