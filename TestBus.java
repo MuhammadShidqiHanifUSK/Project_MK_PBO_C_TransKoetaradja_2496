@@ -50,13 +50,38 @@ public class TestBus{
             } else {
               System.out.println("Penumpang " + nama + " gagal ditambahkan ke bus (mungkin kapasitas penuh atau saldo tidak mencukupi).");
             }
+
           } catch (Exception e) {
             System.out.println("Terjadi kesalahan: " + e.getMessage());
           }
           System.out.println();
           break;
         
-        //case 2:
+        case 2:
+          System.out.println("Masukkan Nama Penumpang yang akan diturunkan: ");
+          String namaTurun = scanner.nextLine();
+          boolean berhasilTurun = bus.turunkanPenumpang(namaTurun);
+
+          if (berhasilTurun){
+            System.out.println("Penumpang " + namaTurun + " berhasil diturunkan dari bus.");
+          } else {
+            System.out.println("Penumpang " + namaTurun + " tidak ditemukan di bus.");
+          }
+          System.out.println();
+          break;
+
+        case 3:
+          System.out.println(bus.toString());
+          System.out.println();
+          break;
+        
+        case 4:
+          status = false;
+          System.out.println("Terima kasih telah menggunakan layanan Bus Trans Koetaradja! By Shidqi :)");
+          return;
+        
+        default:
+          System.out.println("Pilihan tidak valid!\n");
       }
     }
   }
